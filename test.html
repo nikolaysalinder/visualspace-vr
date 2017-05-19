@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta charset="utf-8" />
+    <title>Visual Space</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Mono" media="all" /><script>WebFont.load({google: {families: ["Roboto", "Roboto Mono"]}});</script></head>
+  <body class="a-body">
+    <a-scene class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" auto-enter-vr=""><a-sky rotation="" radius="5000" geometry="" src="./cover6.jpg" material="" position="" scale="" visible=""></a-sky> <a-entity position="" rotation="" scale="" visible=""><a-entity camera="" position="" rotation="" look-controls="" wasd-controls="" scale="" visible=""><a-entity position="" scale="" geometry="" material="" raycaster="" cursor="" rotation="" visible=""><a-entity raycaster="" cursor="" position="" rotation="" scale="" visible=""></a-entity> <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="0.5 0.5 0.5" dur="3000"></a-animation> <a-animation begin="fusing" easing="ease-out" attribute="scale" fill="forwards" from="0.5 0.5 0.5" to="0.1 0.1 0.1" dur="1500"></a-animation></a-entity></a-entity></a-entity> <a-entity id="1" position="" rotation="" material="" scale="" geometry="" skyurl="./cover.jpg" src="./cover.jpg" visible=""></a-entity><a-entity id="2" position="" rotation="" material="" scale="" geometry="" skyurl="./cover1.jpg" src="./cover1.jpg" visible=""></a-entity><a-entity id="3" position="" rotation="" material="" scale="" geometry="" skyurl="./cover.jpg" src="./cover.jpg" visible=""></a-entity><a-entity id="4" position="" rotation="" material="" scale="" geometry="" skyurl="./cover.jpg" src="./cover.jpg" visible=""></a-entity><a-entity id="5" position="" rotation="" material="" scale="" geometry="" skyurl="./cover4.jpg" src="./cover4.jpg" visible=""></a-entity><a-entity id="6" position="" rotation="" material="" scale="" geometry="" skyurl="./cover5.jpg" src="./cover5.jpg" visible=""></a-entity><a-entity id="7" position="" rotation="" material="" scale="" geometry="" skyurl="./cover6.jpg" src="./cover6.jpg" visible=""></a-entity> <a-text value="Visual Space" text="" position="" scale="" rotation="" visible=""></a-text> <a-text text="" position="" scale="" rotation="" visible=""></a-text><canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="2560" height="974" style="width: 2560px; height: 974px;"></canvas><a-entity camera="" position="" rotation="" scale="" visible=""></a-entity></a-scene>
+
+    <script>
+      Vue.component('sky', {
+        props: ['skyurl'],
+        template: '&lt;a-sky :src="skyurl" :rotation="rotation" :radius="radius"&gt;&lt;/a-sky&gt;',
+        data: function() {
+          return {
+            rotation: '0 0 0',
+            radius: '5000'
+          }
+        },
+        methods: {},
+        computed: {} 
+      })
+
+      Vue.component('item-gallary', {
+        props: ['id', 'position', 'rotation', 'material', 'scale', 'geometry', 'skyurl',],
+        template:'&lt;a-entity :id="id" :position="position" :rotation="rotation" :material="material" :scale="scale" :geometry="geometry" :skyurl="skyurl" :src="skyurl" v-on:click="setSkyImage"&gt;&lt;/a-entity&gt;',        
+        data: function(){
+          return {
+          }
+        },
+        methods: {
+          setSkyImage: function(){
+            vm.skyurl=this.skyurl
+            console.log(this.skyurl);
+            console.log(vm.skyurl);
+          }
+        },
+        computed: {}
+      })
+
+      var vm = new Vue ({
+        el: 'a-scene',
+        data: {
+          items: [
+            {
+              id: 1,
+              position: '-3 1 1',
+              rotation: '0 50 0',
+              material: 'color: #BBB',         
+              scale: '1 1 1',
+              geometry: 'primitive: plane',
+              skyurl: './cover.jpg',
+            },
+            {
+              id: 2,
+              position: '-2.15 1 0.4',
+              rotation: '0 30 0',
+              material: 'color: #BBB',
+              scale: '1 1 1',
+              geometry: 'primitive: plane',
+              skyurl: './cover1.jpg'
+            },
+            {
+              id: 3,
+              position: '-1.2 1 0',
+              rotation: '0 15 0',
+              material: 'color: #BBB',
+              scale: '1 1 1',
+              geometry: 'primitive: plane',
+              skyurl: './cover.jpg'
+            },
+            {
+              id: 4,
+              position: '0 1 -0.1',
+              rotation: '0 0 0',
+              material: 'color: #BBB',
+              scale: '1 1 1',
+              geometry: 'primitive: plane',
+              skyurl: './cover.jpg'
+            },
+            {
+              id: 5,
+              position: '1.2 1 0',
+              rotation: '0 -15 0',
+              material: 'color: #BBB',
+              scale: '1 1 1',
+              geometry: 'primitive: plane',
+              skyurl: './cover4.jpg'
+            },
+            {
+              id: 6,
+              position: '2.15 1 0.4',
+              rotation: '0 -30 0',
+              material: 'color: #BBB',
+              scale: '1 1 1',
+              geometry: 'primitive: plane',
+              skyurl: './cover5.jpg'
+            },
+            {
+              id: 7,
+              position: '3 1 1',
+              rotation: '0 -50 0',
+              material: 'color: #BBB',
+              scale: '1 1 1',
+              geometry: 'primitive: plane',
+              skyurl: './cover6.jpg'
+            }
+          ],
+          computed: {
+            
+          },
+          skyurl: './cover.jpg',
+          methods: {}
+        }
+      });
+    </script>     
+  
+<div class="a-inspector-loader">Loading Inspector<span class="dots"><span>.</span><span>.</span><span>.</span></span></div></body></html>
