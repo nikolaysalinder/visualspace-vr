@@ -12,33 +12,33 @@
   <body>
     <a-scene>
       <sky :src="skyurl"></sky>
-      
+
       <a-entity position="0 2.2 4">
         <a-entity camera look-controls wasd-controls>
           <a-entity position="0 0 -3"
                     scale="0.1 0.1 0.1"
-                    geometry="primitive: ring; 
+                    geometry="primitive: ring;
                               radiusOuter: 0.30;
                               radiusInner: 0.20;"
-                    material="color: #00aff0; 
+                    material="color: #00aff0;
                               shader: flat"
-                    cursor="maxDistance: 20; 
+                    cursor="maxDistance: 20;
                             fuse: true">
             <a-entity cursor raycaster="far: 20; interval: 1000; objects: .clickable"></a-entity>
-            <a-animation begin="click" 
-                         easing="ease-in" 
+            <a-animation begin="click"
+                         easing="ease-in"
                          attribute="scale"
-                         fill="backwards" 
-                         from="0.1 0.1 0.1" 
-                         to="0.5 0.5 0.5" 
+                         fill="backwards"
+                         from="0.1 0.1 0.1"
+                         to="0.5 0.5 0.5"
                          dur="3000"
             ></a-animation>
-            <a-animation begin="fusing" 
-                         easing="ease-out" 
+            <a-animation begin="fusing"
+                         easing="ease-out"
                          attribute="scale"
-                         fill="forwards" 
-                         from="0.5 0.5 0.5" 
-                         to="0.1 0.1 0.1" 
+                         fill="forwards"
+                         from="0.5 0.5 0.5"
+                         to="0.1 0.1 0.1"
                          dur="1500"
             ></a-animation>
           </a-entity>
@@ -51,7 +51,7 @@
         :id="id"
       ></logo>
       <item-gallary
-        v-for="item in items" 
+        v-for="item in items"
         :id="item.id"
         :position="item.position"
         :rotation="item.rotation"
@@ -61,17 +61,17 @@
         :skyurl="item.skyurl"
         :src="item.skyurl"
         :key="item.id"
-       ></item-gallary> 
+       ></item-gallary>
 
-      <a-text 
-        value="Visual Space" 
-        text="align:center; alphaTest:0; anchor:align; color:#00aff0; height:11; opacity:1; value:Visual Space; width:5; zOffset:0" 
-        position="0 3 0" 
+      <a-text
+        value="Visual Space"
+        text="align:center; alphaTest:0; anchor:align; color:#00aff0; height:11; opacity:1; value:Visual Space; width:5; zOffset:0"
+        position="0 3 0"
         scale="3 3 3"
       ></a-text>
-      <a-text 
-        text="align:center;alphaTest:0;anchor:align;color:#00aff0;height:11;opacity:1;value:Choose your future;width:5;zOffset:0" 
-        position="0 2.5 0" 
+      <a-text
+        text="align:center;alphaTest:0;anchor:align;color:#00aff0;height:11;opacity:1;value:Choose your future;width:5;zOffset:0"
+        position="0 2.5 0"
         scale="1 1 1"
       ></a-text>
     </a-scene>
@@ -92,12 +92,25 @@
           };
         },
         methods: {},
+<<<<<<< HEAD
         computed: {} 
       });
 
       Vue.component('item-gallary', {
         props: ['id', 'position', 'rotation', 'material', 'scale', 'geometry', 'skyurl'],
         template:'<a-entity :id="id" :position="position" :rotation="rotation" :material="material" :scale="scale" :geometry="geometry" :skyurl="skyurl" :src="skyurl" v-on:click="setSkyImage"></a-entity>',
+=======
+        computed: {}
+      })
+
+      Vue.component('item-gallary', {
+        props: ['id', 'position', 'rotation', 'material', 'scale', 'geometry', 'skyurl', 'src'],
+        template:'<a-entity :id="id" :position="position" :rotation="rotation" :material="material" :scale="scale" :geometry="geometry" :skyurl="skyurl" :src="skyurl" v-on:click="setSkyImage"></a-entity>',
+        data: function(){
+          return {
+          }
+        },
+>>>>>>> 51b25d10384a0329cc27e647dfc78bb9dc09d585
         methods: {
           setSkyImage: function() {
             vm.skyurl=this.skyurl;
@@ -119,7 +132,11 @@
               id: 1,
               position: '-3 1 1',
               rotation: '0 50 0',
+<<<<<<< HEAD
               material: 'color: #BBB',
+=======
+              material: 'color: #BBB; src:cover.jpg',
+>>>>>>> 51b25d10384a0329cc27e647dfc78bb9dc09d585
               scale: '1 1 1',
               geometry: 'primitive: plane',
               skyurl: './cover.jpg',
@@ -128,7 +145,7 @@
               id: 2,
               position: '-2.15 1 0.4',
               rotation: '0 30 0',
-              material: 'color: #BBB',
+              material: 'color: #BBB; src:cover1.jpg',
               scale: '1 1 1',
               geometry: 'primitive: plane',
               skyurl: './cover1.jpg'
@@ -137,25 +154,25 @@
               id: 3,
               position: '-1.2 1 0',
               rotation: '0 15 0',
-              material: 'color: #BBB',
+              material: 'color: #BBB; src:cover2.jpg',
               scale: '1 1 1',
               geometry: 'primitive: plane',
-              skyurl: './cover.jpg'
+              skyurl: './cover2.jpg'
             },
             {
               id: 4,
               position: '0 1 -0.1',
               rotation: '0 0 0',
-              material: 'color: #BBB',
+              material: 'color: #BBB; src:cover3.jpg',
               scale: '1 1 1',
               geometry: 'primitive: plane',
-              skyurl: './cover.jpg'
+              skyurl: './cover3.jpg'
             },
             {
               id: 5,
               position: '1.2 1 0',
               rotation: '0 -15 0',
-              material: 'color: #BBB',
+              material: 'color: #BBB; src:cover4.jpg',
               scale: '1 1 1',
               geometry: 'primitive: plane',
               skyurl: './cover4.jpg'
@@ -164,7 +181,7 @@
               id: 6,
               position: '2.15 1 0.4',
               rotation: '0 -30 0',
-              material: 'color: #BBB',
+              material: 'color: #BBB; src:cover5.jpg',
               scale: '1 1 1',
               geometry: 'primitive: plane',
               skyurl: './cover5.jpg'
@@ -173,14 +190,14 @@
               id: 7,
               position: '3 1 1',
               rotation: '0 -50 0',
-              material: 'color: #BBB',
+              material: 'color: #BBB; src:cover6.jpg',
               scale: '1 1 1',
               geometry: 'primitive: plane',
               skyurl: './cover6.jpg'
             }
           ],
           computed: {
-            
+
           },
           skyurl: './cover.jpg',
           methods: {}
