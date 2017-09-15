@@ -92,17 +92,8 @@
           };
         },
         methods: {},
-<<<<<<< HEAD
-        computed: {} 
-      });
-
-      Vue.component('item-gallary', {
-        props: ['id', 'position', 'rotation', 'material', 'scale', 'geometry', 'skyurl'],
-        template:'<a-entity :id="id" :position="position" :rotation="rotation" :material="material" :scale="scale" :geometry="geometry" :skyurl="skyurl" :src="skyurl" v-on:click="setSkyImage"></a-entity>',
-=======
         computed: {}
       })
-
       Vue.component('item-gallary', {
         props: ['id', 'position', 'rotation', 'material', 'scale', 'geometry', 'skyurl', 'src'],
         template:'<a-entity :id="id" :position="position" :rotation="rotation" :material="material" :scale="scale" :geometry="geometry" :skyurl="skyurl" :src="skyurl" v-on:click="setSkyImage"></a-entity>',
@@ -110,7 +101,6 @@
           return {
           }
         },
->>>>>>> 51b25d10384a0329cc27e647dfc78bb9dc09d585
         methods: {
           setSkyImage: function() {
             vm.skyurl=this.skyurl;
@@ -132,11 +122,7 @@
               id: 1,
               position: '-3 1 1',
               rotation: '0 50 0',
-<<<<<<< HEAD
-              material: 'color: #BBB',
-=======
               material: 'color: #BBB; src:cover.jpg',
->>>>>>> 51b25d10384a0329cc27e647dfc78bb9dc09d585
               scale: '1 1 1',
               geometry: 'primitive: plane',
               skyurl: './cover.jpg',
