@@ -1,17 +1,8 @@
-var express = require('express');
-var app = express();
+const Koa = require('koa');
+const app = new Koa();
 
-app.set('port', process.env.PORT || 3000);
-
-
-app.get('/', function(req, res){
-	if(err) {
-		console.log(err);
-	} else {
-		res.render('index.html');
-	}
+app.use(async ctx => {
+  ctx.body = 'Hello World';
 });
-
-app.listen(app.get('port'), function(){
-	console.log('Express запущен на http://localhost:' + app.get('port') + ': нажмите Ctr+ C для завершения');
-})
+console.log('Express запущен на http://localhost:3000: нажмите Ctr+ C для завершения');
+app.listen(3000);
