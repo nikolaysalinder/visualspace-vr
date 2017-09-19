@@ -96,7 +96,8 @@
       })
       Vue.component('item-gallary', {
         props: ['id', 'position', 'rotation', 'material', 'scale', 'geometry', 'skyurl', 'src'],
-        template:'<a-entity :id="id" :position="position" :rotation="rotation" :material="material" :scale="scale" :geometry="geometry" :skyurl="skyurl" :src="skyurl" v-on:click="setSkyImage"></a-entity>',
+        template:
+        '<a-entity :id="id" :position="position" :rotation="rotation" :material="material" :scale="scale" :geometry="geometry" :skyurl="skyurl" :src="skyurl" v-on:click="setSkyImage"></a-entity>',
         data: function(){
           return {
           }
